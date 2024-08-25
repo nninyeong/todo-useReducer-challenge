@@ -18,6 +18,13 @@ const TodoList = () => {
     });
   };
 
+  const DeleteHandler = (task) => {
+    dispatch({
+      type: "delete",
+      task: task,
+    });
+  };
+
   return (
     <TodoListContainer>
       <Input
@@ -28,7 +35,7 @@ const TodoList = () => {
         }}
       />
       <TaskSubmitButton onClick={() => SubmitHandler(value)} />
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} DeleteHandler={DeleteHandler} />
     </TodoListContainer>
   );
 };
