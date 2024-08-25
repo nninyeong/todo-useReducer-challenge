@@ -1,16 +1,21 @@
 import { useTasks } from "./Context/TaskContextProvider";
 import Task from "./Task";
+import styled from "styled-components";
 
 const TaskList = () => {
   const tasks = useTasks();
 
   return (
-    <ul>
+    <List>
       {tasks.map((task) => {
         return <Task key={task.id} task={task} />;
       })}
-    </ul>
+    </List>
   );
 };
 
 export default TaskList;
+
+const List = styled.ul`
+  overflow-y: auto;
+`;

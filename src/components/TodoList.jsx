@@ -19,14 +19,16 @@ const TodoList = () => {
 
   return (
     <TodoListContainer>
-      <Input
-        type="text"
-        value={value}
-        onChange={(e) => {
-          setValue(e.target.value);
-        }}
-      />
-      <TaskSubmitButton onClick={() => SubmitHandler(value)} />
+      <div>
+        <Input
+          type="text"
+          value={value}
+          onChange={(e) => {
+            setValue(e.target.value);
+          }}
+        />
+        <TaskSubmitButton onClick={() => SubmitHandler(value)} />
+      </div>
       <TaskList />
     </TodoListContainer>
   );
