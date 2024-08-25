@@ -26,6 +26,14 @@ const taskReducer = (tasks, action) => {
         if (task.id === action.task.id) return { ...task, done: !task.done };
         else return task;
       });
+    case "edit":
+      return tasks.map((task) => {
+        if (task.id === action.task.id) {
+          return { ...task, text: action.editedText };
+        } else {
+          return task;
+        }
+      });
   }
 };
 
