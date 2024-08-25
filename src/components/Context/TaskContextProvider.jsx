@@ -21,10 +21,11 @@ const taskReducer = (tasks, action) => {
       return [...tasks, { id: action.id, text: action.text, done: false }];
     case "delete":
       return tasks.filter((task) => task.id !== action.task.id);
-    // case 'doneToggle':
-    //   return tasks.map(task => {
-    //     if(task.id === action.task.id) return {id: task.id, text: task.text}
-    //   })
+    case "doneToggle":
+      return tasks.map((task) => {
+        if (task.id === action.task.id) return { ...task, done: !task.done };
+        else return task;
+      });
   }
 };
 
