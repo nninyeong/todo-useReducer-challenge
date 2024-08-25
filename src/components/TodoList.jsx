@@ -1,27 +1,19 @@
 import styled from "styled-components";
 import Input from "./Input";
-import { useReducer, useState } from "react";
-import taskReducer from "./Reducer/taskReducer";
+import { useState } from "react";
 import TaskSubmitButton from "./Button/TaskSubmitButton";
 import TaskList from "./TaskList";
+import { useTasksDispatch } from "./Context/TaskContextProvider.jsx";
 
 const TodoList = () => {
   const [value, setValue] = useState("");
-  const [tasks, dispatch] = useReducer(taskReducer, []);
-  console.log(tasks);
+  const dispatch = useTasksDispatch();
 
   const SubmitHandler = (text) => {
     dispatch({
       type: "add",
       id: new Date().getTime(),
       text: text,
-    });
-  };
-
-  const DeleteHandler = (task) => {
-    dispatch({
-      type: "delete",
-      task: task,
     });
   };
 
@@ -35,7 +27,7 @@ const TodoList = () => {
         }}
       />
       <TaskSubmitButton onClick={() => SubmitHandler(value)} />
-      <TaskList tasks={tasks} DeleteHandler={DeleteHandler} />
+      <TaskList />
     </TodoListContainer>
   );
 };

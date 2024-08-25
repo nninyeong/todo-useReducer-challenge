@@ -1,6 +1,16 @@
 import TaskDeleteButton from "./Button/TaskDeleteButton";
+import { useTasksDispatch } from "./Context/TaskContextProvider";
 
-const Task = ({ task, DeleteHandler }) => {
+const Task = ({ task }) => {
+  const dispatch = useTasksDispatch();
+
+  const DeleteHandler = (task) => {
+    dispatch({
+      type: "delete",
+      task: task,
+    });
+  };
+
   return (
     <div>
       <p>{task.text}</p>

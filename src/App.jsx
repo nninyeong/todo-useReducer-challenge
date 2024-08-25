@@ -1,12 +1,15 @@
 import styled from "styled-components";
 import Title from "./components/Title";
 import TodoList from "./components/TodoList";
+import TaskContextProvider from "./components/Context/TaskContextProvider";
 
 function App() {
   return (
     <AppContainer>
       <Title />
-      <TodoList />
+      <TaskContextProvider>
+        <TodoList />
+      </TaskContextProvider>
     </AppContainer>
   );
 }
