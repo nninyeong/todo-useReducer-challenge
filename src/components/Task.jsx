@@ -5,13 +5,6 @@ import styled from "styled-components";
 const Task = ({ task }) => {
   const dispatch = useTasksDispatch();
 
-  const DeleteHandler = (task) => {
-    dispatch({
-      type: "delete",
-      task: task,
-    });
-  };
-
   const DoneHandler = (task) => {
     dispatch({
       type: "doneToggle",
@@ -29,7 +22,7 @@ const Task = ({ task }) => {
       >
         {task.text}
       </TaskParagraph>
-      <TaskDeleteButton task={task} DeleteHandler={DeleteHandler} />
+      <TaskDeleteButton task={task} />
     </div>
   );
 };
