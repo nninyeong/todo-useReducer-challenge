@@ -37,5 +37,7 @@ const Task = ({ task }) => {
 export default Task;
 
 const TaskParagraph = styled.p`
+  display: inline-block;
+  margin-right: 5px;
   text-decoration: ${(props) => (props.$done ? "line-through" : "none")};
 `;
